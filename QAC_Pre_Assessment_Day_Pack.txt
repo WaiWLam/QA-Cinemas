@@ -1,0 +1,345 @@
+Encapsulation: The English Oxford dictionary describes encapsulate as a verb "Enclose (something) in or as if in a capsule." In Java, the meaning is similar as it is a method that captures the data within a code and keeps the data and codes safe from external interference. The actual implementation of how and where the data is stored is hidden from the user. The example in Figure 1. shows the code I used to Encapsulate the employee name in my programme by making the name Private, the only means of accessing the information by using a getter. 
+
+A typical example would be a radio app on a smartphone, it has a lot of code running in the background to play various stations the user wants to listen too, it is easy to access and use but the app itself is complete and independent so that if the app is removed it doesn't impact the functionality of the smartphone. 
+
+package com.qa.cinema;
+
+public class Employee {
+    private String empName;
+
+    public String getEmpName() {
+
+        return empName;
+    }
+
+    public void setEmpName(String newValue) {
+
+        this.empName = newValue;
+    }
+
+Employee obj = new Employee();
+        obj.setEmpName("Hannah Womack");
+
+        System.out.println("You were served by" + " " + obj.getEmpName());
+
+}
+
+Figure 1. Encapsulate 
+
+Inheritance: The Merriam-Webster dictionary describes Inheritance as "the act of inheriting property" add that is true to software development where one class inherits the properties of another class through an extension (extends) that bring in the some or all properties of another object to enable the programmer to reuse codes.A typical example of inheritance is when a couple has a child, the child (class) would inherit genetic traits from their parents (Class).
+
+Inheritance is used to create a new class based on the information of an existing class by allowing access to its information such as instant variables and methods. The are various types of inheritance such as single type (parent and child), Multilevel Inheritance (grandparent, parent and then the child), Hierarchical Inheritance (Parent with multiple children - The Inheritance used in my programme as both Student and OAP inherited information from ID) and Multiple Inheritance (a child inherits from both parents).
+
+When you look at Figures 2, 2.1. and 2.2.it clearly shows how Inheritance works in the programme I had written, you can see that class OAP inherited data from the class ID. If you look at Figure 2.2. it shows (String AcceptableID = "Valid ID are Passport, Driving Licence, NUS Card and Biometric/ID card";) by extending ID in the class OAP and inserting an override I was able to redirect the information and using (System.out.println(oapObject.AcceptableID);) in Figure 2. I was able to print (Valid ID are Passport, Driving Licence, NUS Card and Biometric/ID card) shown in Figure 2.1.
+
+package com.qa.cinema;
+
+public class OAP extends ID {
+
+    @Override
+    public void ID() {
+        System.out.println("Did you know that if you are over 55 and have an ID, you may be eligible for an OAP ticket?");
+
+    }
+    public static void main(String[] args) {
+        OAP oapObject = new OAP();
+        oapObject.ID();
+        System.out.println(oapObject.AcceptableID);
+    }
+}
+
+Figure 2.Inheritance
+
+Did you know that if you are over 55 and have an ID, you may be eligible for an OAP ticket?
+Valid ID are Passport, Driving Licence, NUS Card and Biometric/ID card
+
+Process finished with exit code 0
+
+Figure 2.1. Inheritance (Run Result)
+
+package com.qa.cinema;
+
+import java.util.Scanner;
+
+public class ID {
+
+    String AcceptableID = "Valid ID are Passport, Driving Licence, NUS Card and Biometric/ID card";
+
+    public void ID() {
+        System.out.println("Please ask the customer for ID, film rated 15.");
+        System.out.println("input customer's age, please =>");
+
+        Scanner aV = new Scanner(System.in);
+        int age = aV.nextInt();
+
+        if (age >= 15) {
+            System.out.println("Age Verified");
+        } else {
+            System.out.println("Sorry, this film is age restricted");
+        }
+    }
+    public static void main(String[] args){}
+
+}
+
+Figure 2.2. Inheritance (ID Class)
+
+Polymorphism: This is as the name suggests ("poly" as in many "morph" as in subtle change" a method that allows the programmer to perform the same action in a subtle but different way. As you can see in the Student class in Figure 3. I override the method from the ID class seen Figure 2.2 to print out ("Do you have a student NUS card?").
+
+package com.qa.cinema;
+
+public class Student extends ID {
+
+    @Override
+    public void ID() {
+
+        System.out.println("Do you have a student NUS card?");
+
+    }
+    public static void main(String[] args) {
+        Student nusObject = new Student();
+        nusObject.ID();
+        System.out.println(nusObject.AcceptableID);
+
+
+    }
+}
+
+Figure 3. Polymorphism (Method Override which is a dynamic Polymorphism)
+
+There are two types of Polymorphism:
+
+	Static Polymorphism - An example of Static Polymorphism is when you have the same name in a class but with a different method (see Figure 3.1.) this is called method overloading.
+
+			public class MethodOverloading{
+				DisplayOverloading obj = new Display
+				obj.disp ('x');
+				obj.disp ('x',10);
+			}
+
+Figure 3.1. Polymorphism (Static Polymorphism)
+
+	Dynamic Polymorphism - An example of Dynamic Polymorphism is when is when a programme is being processed which reads an override method that is resolved during runtime hence Dynamic (see Figure 3.2.) this is called method override.
+			
+			class Motorcycle {
+				public void motorcyclesound () {
+					System.out.println("Vroom")
+				}
+			}
+			public class Exhaust extends Motorcycle {
+
+				public void motorcyclesound(){
+					System.out.println("Bang");
+				}
+				public static void main (string args [])
+					Motorcycle obj = new Bike ();
+					obj.motorcycleSound();
+					}
+				}
+
+Figure 3.2. Polymorphism (Dynamic Polymorphism)
+
+Abstraction: This is a process where relevant data of high-level information are shown to the user and all other data are hidden to enhance the look and feel of a programme. A typical example would be a motorbike that is built with various components that are hidden inside the bike and only the relevant components are exposed.
+As you can see in my programme I wrote in Figure 4. only the relevant information is visible to the user and all other information is hidden.
+
+Please ask the customer for ID, film rated 15.
+input customer's age, please =>
+
+
+Figure 4. Abstraction
+
+Appendix I
+
+
+package com.qa.cinema;
+
+import java.util.Scanner;
+import java.util.Calendar;
+
+public class Main {
+
+/* You are required to create a simple prototype cinema system that provide the ability to purchase tickets and return the total price of a customer’s order.
+Ticket prices for all movies at this cinema are as follows:
+
+Ticket prices:
+•Standard - £8
+•OAP - £6
+•Student - £6
+•Child - £4
+
+*/
+
+    public static void main(String[] args) {
+
+        ID idObject = new ID ();
+        idObject.ID();
+
+        System.out.println(" ");
+
+        Student nusObject = new Student();
+        nusObject.ID();
+
+        System.out.println(" ");
+
+        OAP oapObject = new OAP();
+        oapObject.ID();
+
+        System.out.println(" ");
+
+        Scanner sQ = new Scanner(System.in);
+        System.out.println("Please enter how many standard tickets you require? if n/a, please enter 0");
+        System.out.println("input, please =>");
+        int standardQty = sQ.nextInt();
+
+        Scanner oQ = new Scanner(System.in);
+        System.out.println("Please enter how many OAP tickets you require? if n/a, please enter 0");
+        System.out.println("input, please =>");
+        int seniorQty = oQ.nextInt();
+
+        Scanner stQ = new Scanner(System.in);
+        System.out.println("Please enter how many student tickets you require? if n/a, please enter 0");
+        System.out.println("input, please =>");
+        int studentQty = stQ.nextInt();
+
+        Scanner cQ = new Scanner(System.in);
+        System.out.println("Please enter how many child tickets you require? if n/a, please enter 0");
+        System.out.println("input, please =>");
+        int childQty = cQ.nextInt();
+
+        System.out.println(" ");
+
+        Calendar now = Calendar.getInstance();
+
+        int dayOfWeek = now.get(Calendar.DAY_OF_WEEK);
+
+        if (Calendar.WEDNESDAY == dayOfWeek) {
+
+            int totalStandard = 6 * standardQty;
+            System.out.println("Standard" + " " + "£" + totalStandard);
+
+            int totalOap = 4 * seniorQty;
+            System.out.println("OAP" + " " + "£" + totalOap);
+
+            int totalStudent = 4 * studentQty;
+            System.out.println("Student" + " " + "£" + totalStudent);
+
+            int totalChild = 2 * childQty;
+            System.out.println("Child" + " " + "£" + totalChild);
+
+            int total = totalStandard + totalOap + totalStudent + totalChild;
+
+            int totalsaving = (standardQty * 2) + (seniorQty * 2) + (studentQty * 2) + (childQty * 2);
+
+            System.out.println("The total cost for this movie is" + " " + "£" + total);
+
+            System.out.println("The total saving:" + " " + "£" + totalsaving);
+
+        }
+
+        else {
+
+            int totalStandard = 8 * standardQty;
+            System.out.println("Standard" + " " + "£" + totalStandard);
+
+            int totalOap = 6 * seniorQty;
+            System.out.println("OAP" + " " + "£" + totalOap);
+
+            int totalStudent = 6 * studentQty;
+            System.out.println("Student" + " " + "£" + totalStudent);
+
+            int totalChild = 4 * childQty;
+            System.out.println("Child" + " " + "£" + totalChild);
+
+            int total = totalStandard + totalOap + totalStudent + totalChild;
+
+            System.out.println("The total cost for this movie is" + " " + "£" + total);
+
+        }
+
+        System.out.println(now.getTime());
+
+        Employee obj = new Employee();
+        obj.setEmpName("Hannah Womack");
+
+        System.out.println("You were served by" + " " + obj.getEmpName());
+
+    }
+
+}
+
+package com.qa.cinema;
+
+public class Employee {
+    private String empName;
+
+    public String getEmpName() {
+
+        return empName;
+    }
+
+    public void setEmpName(String newValue) {
+
+        this.empName = newValue;
+    }
+
+}
+
+package com.qa.cinema;
+
+public class Student extends ID {
+
+    @Override
+    public void ID() {
+
+        System.out.println("Do you have a student NUS card?");
+
+    }
+    public static void main(String[] args) {
+        Student nusObject = new Student();
+        nusObject.ID();
+        System.out.println(nusObject.AcceptableID);
+
+
+    }
+}
+
+package com.qa.cinema;
+
+import java.util.Scanner;
+
+public class ID {
+
+    String AcceptableID = "Valid ID are Passport, Driving Licence, NUS Card and Biometric/ID card";
+
+    public void ID() {
+        System.out.println("Please ask the customer for ID, film rated 15.");
+        System.out.println("input customer's age, please =>");
+
+        Scanner aV = new Scanner(System.in);
+        int age = aV.nextInt();
+
+        if (age >= 15) {
+            System.out.println("Age Verified");
+        } else {
+            System.out.println("Sorry, this film is age restricted");
+        }
+    }
+    public static void main(String[] args){}
+
+}
+
+package com.qa.cinema;
+
+public class OAP extends ID {
+
+    @Override
+    public void ID() {
+        System.out.println("Did you know that if you are over 55 and have an ID, you may be eligible for an OAP ticket?");
+
+    }
+    public static void main(String[] args) {
+        OAP oapObject = new OAP();
+        oapObject.ID();
+        System.out.println(oapObject.AcceptableID);
+    }
+}
