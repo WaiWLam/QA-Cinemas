@@ -1,6 +1,6 @@
-Encapsulation: The English Oxford dictionary describes encapsulate as a verb "Enclose (something) in or as if in a capsule." In Java, the meaning is similar as it is a method that captures the data within a code and keeps the data and codes safe from external interference. The actual implementation of how and where the data is stored is hidden from the user. The example in Figure 1. shows the code I used to Encapsulate the employee name in my programme by making the name Private, the only means of accessing the information by using a getter. 
+Encapsulation: The English Oxford dictionary describes encapsulate as a verb "Enclose (something) in or as if in a capsule." In Java, the meaning is similar as it is a method that captures the data within a code, keeps the data and codes safe from external interference and the actual implementation about how and where the data is stored is hidden from the user. The example in Figure 1. shows the code I used to Encapsulate the employee name in my programme by making the name Private, the only means of accessing the information is by using a getter. 
 
-A typical example would be a radio app on a smartphone, it has a lot of code running in the background to play various stations the user wants to listen too, it is easy to access and use but the app itself is complete and independent so that if the app is removed it doesn't impact the functionality of the smartphone. 
+The best analogy would be a radio app on a smartphone, it has a lot of code running in the background to play various stations the user wants to listen too, it is easy to use but the app itself is complete and independent so that if the app was removed it doesn't impact the functionality of the smartphone, that is Encapsulation.  
 
 package com.qa.cinema;
 
@@ -26,11 +26,11 @@ Employee obj = new Employee();
 
 Figure 1. Encapsulate 
 
-Inheritance: The Merriam-Webster dictionary describes Inheritance as "the act of inheriting property" add that is true to software development where one class inherits the properties of another class through an extension (extends) that bring in the some or all properties of another object to enable the programmer to reuse codes.A typical example of inheritance is when a couple has a child, the child (class) would inherit genetic traits from their parents (Class).
+Inheritance: The Merriam-Webster dictionary describes Inheritance as "the act of inheriting property" add that is true to software development where one class inherits the properties of another class through an extension (extends) that enable the programmer to reuse codes. A great analogy would be when a couple has a child, the child (class) would inherit genetic traits from their parents (Class).
 
-Inheritance is used to create a new class based on the information of an existing class by allowing access to its information such as instant variables and methods. The are various types of inheritance such as single type (parent and child), Multilevel Inheritance (grandparent, parent and then the child), Hierarchical Inheritance (Parent with multiple children - The Inheritance used in my programme as both Student and OAP inherited information from ID) and Multiple Inheritance (a child inherits from both parents).
+Inheritance is used to create a new class based on the information of an existing class by allowing access to its information such as instant variables and methods. The are various types of inheritance and following on from the parent and child analogy, a single type can be described as parent and child, a multilevel inheritance would be grandparent, parent and  child, a hierarchical inheritance would be a parent with multiple children the one used in my programme see figure 2., 2.1., and 3 as both Student and OAP inherited information from ID, and lastly the multiple inheritances which can be described as a child inherits genetics from both parents.
 
-When you look at Figures 2, 2.1. and 2.2.it clearly shows how Inheritance works in the programme I had written, you can see that class OAP inherited data from the class ID. If you look at Figure 2.2. it shows (String AcceptableID = "Valid ID are Passport, Driving Licence, NUS Card and Biometric/ID card";) by extending ID in the class OAP and inserting an override I was able to redirect the information and using (System.out.println(oapObject.AcceptableID);) in Figure 2. I was able to print (Valid ID are Passport, Driving Licence, NUS Card and Biometric/ID card) shown in Figure 2.1.
+When you look at Figures 2, 2.1. and 2.2. it clearly shows Inheritance at work in the programme as you can see the OAP class inherited data from the ID class. If you look at Figure 2.2. it shows (String AcceptableID = "Valid ID are Passport, Driving Licence, NUS Card and Biometric/ID card";) by extending ID in the class OAP and inserting an override I was able to redirect the information and using (System.out.println(oapObject.AcceptableID);) in Figure 2. I was able to print (Valid ID are Passport, Driving Licence, NUS Card and Biometric/ID card) shown in Figure 2.1.
 
 package com.qa.cinema;
 
@@ -109,10 +109,10 @@ Figure 3. Polymorphism (Method Override which is a dynamic Polymorphism)
 
 There are two types of Polymorphism:
 
-	Static Polymorphism - An example of Static Polymorphism is when you have the same name in a class but with a different method (see Figure 3.1.) this is called method overloading.
+    Static Polymorphism - An example of Static Polymorphism is when you have the same name in a class but with a different method (see Figure 3.1.) this is called method overloading. There are three ways to method overload one is the number of parameters as shown in Figure 3.1. the second is various data type (int, long, float and double) and the third is the sequence of the data type.
 
 			public class MethodOverloading{
-				DisplayOverloading obj = new Display
+				DisplayOverloading obj = new Display;
 				obj.disp ('x');
 				obj.disp ('x',10);
 			}
@@ -120,27 +120,30 @@ There are two types of Polymorphism:
 Figure 3.1. Polymorphism (Static Polymorphism)
 
 	Dynamic Polymorphism - An example of Dynamic Polymorphism is when is when a programme is being processed which reads an override method that is resolved during runtime hence Dynamic (see Figure 3.2.) this is called method override.
-			
-			class Motorcycle {
-				public void motorcyclesound () {
-					System.out.println("Vroom")
-				}
+	
+		class Motorcycle {
+   			 	public void motorcycleSound () {
+  			      	System.out.println("Vroom");
+ 			   	}
 			}
+			
 			public class Exhaust extends Motorcycle {
 
-				public void motorcyclesound(){
-					System.out.println("Bang");
-				}
-				public static void main (string args [])
-					Motorcycle obj = new Bike ();
-					obj.motorcycleSound();
-					}
-				}
+ 				public void motorcycleSound(){
+  				System.out.println("Bang");
+  			  	}
+
+   		 public static void main (string args []) {
+    			 	Motorcycle obj = new Motorcycle();
+     			   	obj.motorcycleSound();
+    			}
+		}
 
 Figure 3.2. Polymorphism (Dynamic Polymorphism)
 
-Abstraction: This is a process where relevant data of high-level information are shown to the user and all other data are hidden to enhance the look and feel of a programme. A typical example would be a motorbike that is built with various components that are hidden inside the bike and only the relevant components are exposed.
-As you can see in my programme I wrote in Figure 4. only the relevant information is visible to the user and all other information is hidden.
+Abstraction: This is a process where relevant data of high-level information are shown to the user and all other data are hidden to enhance the look and feel of a programme. A great analogy would be a motorbike, it is built with various components that are hidden inside the bike and only the relevant components are exposed; this is an abstraction.
+
+As you can see in my programme, I wrote in Figure 4. only the relevant information is visible to the user and all other information is hidden.
 
 Please ask the customer for ID, film rated 15.
 input customer's age, please =>
@@ -158,14 +161,14 @@ import java.util.Calendar;
 
 public class Main {
 
-/* You are required to create a simple prototype cinema system that provide the ability to purchase tickets and return the total price of a customer’s order.
+/* You are required to create a simple prototype cinema system that provide the ability to purchase tickets and return the total price of a customerâ€™s order.
 Ticket prices for all movies at this cinema are as follows:
 
 Ticket prices:
-•Standard - £8
-•OAP - £6
-•Student - £6
-•Child - £4
+â€¢Standard - Â£8
+â€¢OAP - Â£6
+â€¢Student - Â£6
+â€¢Child - Â£4
 
 */
 
@@ -215,44 +218,44 @@ Ticket prices:
         if (Calendar.WEDNESDAY == dayOfWeek) {
 
             int totalStandard = 6 * standardQty;
-            System.out.println("Standard" + " " + "£" + totalStandard);
+            System.out.println("Standard" + " " + "Â£" + totalStandard);
 
             int totalOap = 4 * seniorQty;
-            System.out.println("OAP" + " " + "£" + totalOap);
+            System.out.println("OAP" + " " + "Â£" + totalOap);
 
             int totalStudent = 4 * studentQty;
-            System.out.println("Student" + " " + "£" + totalStudent);
+            System.out.println("Student" + " " + "Â£" + totalStudent);
 
             int totalChild = 2 * childQty;
-            System.out.println("Child" + " " + "£" + totalChild);
+            System.out.println("Child" + " " + "Â£" + totalChild);
 
             int total = totalStandard + totalOap + totalStudent + totalChild;
 
             int totalsaving = (standardQty * 2) + (seniorQty * 2) + (studentQty * 2) + (childQty * 2);
 
-            System.out.println("The total cost for this movie is" + " " + "£" + total);
+            System.out.println("The total cost for this movie is" + " " + "Â£" + total);
 
-            System.out.println("The total saving:" + " " + "£" + totalsaving);
+            System.out.println("The total saving:" + " " + "Â£" + totalsaving);
 
         }
 
         else {
 
             int totalStandard = 8 * standardQty;
-            System.out.println("Standard" + " " + "£" + totalStandard);
+            System.out.println("Standard" + " " + "Â£" + totalStandard);
 
             int totalOap = 6 * seniorQty;
-            System.out.println("OAP" + " " + "£" + totalOap);
+            System.out.println("OAP" + " " + "Â£" + totalOap);
 
             int totalStudent = 6 * studentQty;
-            System.out.println("Student" + " " + "£" + totalStudent);
+            System.out.println("Student" + " " + "Â£" + totalStudent);
 
             int totalChild = 4 * childQty;
-            System.out.println("Child" + " " + "£" + totalChild);
+            System.out.println("Child" + " " + "Â£" + totalChild);
 
             int total = totalStandard + totalOap + totalStudent + totalChild;
 
-            System.out.println("The total cost for this movie is" + " " + "£" + total);
+            System.out.println("The total cost for this movie is" + " " + "Â£" + total);
 
         }
 
@@ -343,3 +346,38 @@ public class OAP extends ID {
         System.out.println(oapObject.AcceptableID);
     }
 }
+
+Result
+
+Please ask the customer for ID, film rated 15.
+input customer's age, please =>
+18
+Age Verified
+ 
+Do you have a student NUS card?
+ 
+Did you know that if you are over 55 and have an ID, you may be eligible for an OAP ticket?
+ 
+Please enter how many standard tickets you require? if n/a, please enter 0
+input, please =>
+1
+Please enter how many OAP tickets you require? if n/a, please enter 0
+input, please =>
+1
+Please enter how many student tickets you require? if n/a, please enter 0
+input, please =>
+1
+Please enter how many child tickets you require? if n/a, please enter 0
+input, please =>
+1
+ 
+Standard Â£8
+OAP Â£6
+Student Â£6
+Child Â£4
+The total cost for this movie is Â£24
+Tue Apr 24 18:23:15 BST 2018
+You were served by Hannah Womack
+
+Process finished with exit code 0
+
